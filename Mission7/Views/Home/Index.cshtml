@@ -1,0 +1,11 @@
+﻿@{
+}
+@model List<Book>
+<div>
+    <h1>Mission 7</h1>
+    <br />
+    @foreach (Book b in Model)
+    {
+        <h3>@b.Title</h3>
+    }
+</div>
