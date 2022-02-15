@@ -1,11 +1,22 @@
 ﻿@{
 }
-@model List<Book>
+@model ProjectViewModel
+
 <div>
     <h1>Mission 7</h1>
     <br />
-    @foreach (Book b in Model)
+    @foreach (Book b in Model.Books)
     {
         <h3>@b.Title</h3>
+        <ul>
+            <li>@b.Author</li>
+            <li>@b.Publisher</li>
+            <li>@b.PageCount</li>
+        </ul>
+        <br />
     }
+
+    
 </div>
+
+<div book-page="@Model.PageInfo" page-action="Index"></div>
