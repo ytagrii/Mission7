@@ -1,0 +1,41 @@
+﻿@page
+@model Mission7.Pages.CartModel
+@{
+}
+<h1>My Cart</h1>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var i in Model.cart.Books)
+        {
+            <tr>
+                <td>@i.Book.Title</td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price.ToString("c")</td>
+                <td>@((i.Book.Price * i.Quantity).ToString("c")) </td>
+            </tr>
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>@Model.cart.GetTotal().ToString("c")</td>
+            @*<td>@string.Format("{0:C}", Model.cart.GetTotal())</td>*@
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    <a class="btn btn-large btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
