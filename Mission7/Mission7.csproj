@@ -17,6 +17,9 @@
     <None Remove="Infastructure\" />
     <None Remove="Models\ViewModels\" />
     <None Remove="bootstrap" />
+    <None Remove="Components\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Types\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -27,6 +30,9 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="Infastructure\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Components\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Types\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

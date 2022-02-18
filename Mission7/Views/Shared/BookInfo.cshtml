@@ -1,0 +1,43 @@
+﻿
+@{
+}
+@model Book
+<div class="col-6 text-center">
+    <h2>@Model.Title</h2>
+    <br />
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Author</th>
+                <td>@Model.Author</td>
+            </tr>
+            <tr>
+                <th>ISBN</th>
+                <td>@Model.Isbn</td>
+            </tr>
+            <tr>
+                <th>Publisher</th>
+                <td>@Model.Publisher</td>
+            </tr>
+            <tr>
+                <th>Classification</th>
+                <td>@Model.Classification</td>
+            </tr>
+            <tr>
+                <th>Cateogry</th>
+                <td>@Model.Category</td>
+            </tr>
+            <tr>
+                <th>Page Count</th>
+                <td>@Model.PageCount</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>$@Model.Price</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br /><br />
+</div>

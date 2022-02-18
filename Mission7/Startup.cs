@@ -49,6 +49,24 @@ namespace Mission7
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoint thaat cleans up how the pages look in the URL
+                endpoints.MapControllerRoute(
+                    name: "Filtering",
+                    pattern: "Category-{bookCategory}/Page-{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" });
+
+                _ = endpoints.MapControllerRoute(
+                  name: "Paging",
+                  pattern: "Page-{pageNum}",
+                  defaults: new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute(
+                    name: "Category",
+                    pattern: "Category-{bookCategory}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum=1});
+
+              
+
                 endpoints.MapDefaultControllerRoute();
             });
         }

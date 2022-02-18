@@ -19,19 +19,22 @@ namespace Mission7.Controllers
             repo = temp;
         }
         // GET: /<controller>/
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int numberOfBooks = 10;
 
             var books = new ProjectViewModel
             {
                 Books = repo.Books.
+                Where(b => b.Category == bookCategory || bookCategory == null).
                 OrderBy(b => b.Title).
                 Skip((pageNum - 1) * numberOfBooks).
                 Take(numberOfBooks),
                 PageInfo = new PageInfo
                 {
-                    TotalBooks = repo.Books.Count(),
+                    TotalBooks = (bookCategory == null ?repo.Books.Count() :
+                        repo.Books.Where(b => b.Category == bookCategory).Count()
+                    ),
                     BooksPerPage = numberOfBooks,
                     CurrentPage = pageNum
                 }
