@@ -1,4 +1,4 @@
-﻿
+﻿@*This page displays the info for each book*@ 
 @{
 }
 @model Book
@@ -7,6 +7,7 @@
         <div class="bg-light p-1">
             <h2>@Model.Title</h2>
             <span class="badge bg-info" style="float:right;">
+                @*this form lets a user add a book to cart*@ 
                 <form method="post" asp-page="/Cart">
                     <input type="hidden" asp-for="@Model.BookId" />
                     <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />

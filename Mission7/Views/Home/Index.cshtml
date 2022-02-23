@@ -3,7 +3,7 @@
 @model ProjectViewModel
 
 <div class="">
-   
+   @*this area builds all the books that were rentured and sends it to a partial view to build*@
     <br />
     <div class="row">
         @foreach (Book b in Model.Books)
@@ -13,5 +13,6 @@
     </div>
 </div>
 
+@*this div is the tag builder that builds the pages*@ 
 <div book-page="@Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

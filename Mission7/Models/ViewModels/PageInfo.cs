@@ -1,6 +1,7 @@
 ﻿using System;
 namespace Mission7.Models.ViewModels
 {
+    //this class in the info about how many books were retunred. 
     public class PageInfo
     {
         public int TotalBooks { get; set; }

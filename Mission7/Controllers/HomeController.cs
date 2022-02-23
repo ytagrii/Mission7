@@ -18,7 +18,7 @@ namespace Mission7.Controllers
         {
             repo = temp;
         }
-        // GET: /<controller>/
+        //Index page contorller for get methods 
         public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int numberOfBooks = 10;

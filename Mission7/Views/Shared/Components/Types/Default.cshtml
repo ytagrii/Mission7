@@ -1,13 +1,18 @@
-﻿
-@{
-}
+﻿@*This is the page the builds the buttons for the categories*@
 @model IEnumerable<string>
-<div class="d-grid gap-2">
+<div class="">
+
+    @*button so a user can get back to all the categories*@ 
+    <a class="btn btn-block @(ViewBag.BookCategory == null ? "btn-primary" : "btn-outline-secondary")" asp-controller="Home"
+       asp-action="Index" asp-route-bookCategory="" asp-route-pageNum="1">All Books</a>
+
+    @*for loop builds all the categories found*@ 
     @foreach (string category in Model)
     {
-        
-            <a class="btn @(ViewBag.BookCategory == category ? "btn-primary" : "btn-outline-secondary")" asp-controller="Home" asp-action="Index"
-               asp-route-bookCategory="@category" asp-route-pageNum="1">@category</a>
-       
+
+        <a class="btn btn-block @(ViewBag.BookCategory == category ? "btn-primary" : "btn-outline-secondary")" asp-controller="Home" asp-action="Index"
+           asp-route-bookCategory="@category" asp-route-pageNum="1">@category</a>
+
     }
+
 </div>

@@ -14,24 +14,26 @@
         </tr>
     </thead>
 
+    @*body contains info about each book added to cart*@ 
     <tbody>
         @foreach (var i in Model.cart.Books)
         {
             <tr>
                 <td>@i.Book.Title</td>
                 <td>@i.Quantity</td>
-                <td>@i.Book.Price.ToString("c")</td>
-                <td>@((i.Book.Price * i.Quantity).ToString("c")) </td>
+                <td>$@i.Book.Price.ToString("#,##0.00")</td>
+                <td>$@((i.Book.Price * i.Quantity).ToString("#,##0.00")) </td>
             </tr>
         }
 
     </tbody>
 
+    @*this contains the info about the total for all the books*@
     <tfoot>
         <tr>
             <td colspan="3">Total:</td>
-            <td>@Model.cart.GetTotal().ToString("c")</td>
-            @*<td>@string.Format("{0:C}", Model.cart.GetTotal())</td>*@
+            <td>$@Model.cart.GetTotal().ToString("#,##0.00")</td>
+           
         </tr>
     </tfoot>
 </table>

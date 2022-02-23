@@ -11,6 +11,7 @@ namespace Mission7.Components
 
         public TypesViewComponent(IBookstoreRepository temp) => repo = temp;
 
+        //this function here gets all the book categories and does a distinct for all of them
         public IViewComponentResult Invoke()
         {
             ViewBag.BookCategory = RouteData.Values["bookCategory"];

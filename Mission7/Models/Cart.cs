@@ -29,6 +29,7 @@ namespace Mission7.Models
             }
         }
 
+        //this function gets the total amount for all the books in the cart
         public double GetTotal()
         {
             double sum = Books.Sum(b => b.Quantity * b.Book.Price);
@@ -37,7 +38,8 @@ namespace Mission7.Models
     }
 
 
-
+    //this class is the info we need to store about
+    //each book in the cart
     public class CartItem
     {
         public int ItemID { get; set; }
