@@ -32,6 +32,7 @@ namespace Mission7.Controllers
                 Take(numberOfBooks),
                 PageInfo = new PageInfo
                 {
+                    //this is where the total pages needed comes into play
                     TotalBooks = (bookCategory == null ?repo.Books.Count() :
                         repo.Books.Where(b => b.Category == bookCategory).Count()
                     ),
