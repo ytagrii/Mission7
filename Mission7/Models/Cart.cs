@@ -8,7 +8,7 @@ namespace Mission7.Models
     {
         public List<CartItem> Books { get; set; } = new List<CartItem>();
 
-        public void AddBook(Book bk, int qty)
+        public virtual void AddBook(Book bk, int qty)
         {
             CartItem line = Books
                 .Where(b => b.Book.BookId == bk.BookId)
@@ -29,6 +29,15 @@ namespace Mission7.Models
             }
         }
 
+        public virtual void RemoveItem(Book bk)
+        {
+            Books.RemoveAll(b => b.Book.BookId == bk.BookId);
+        }
+
+        public virtual void ClearCart()
+        {
+            Books.Clear();
+        }
         //this function gets the total amount for all the books in the cart
         public double GetTotal()
         {
