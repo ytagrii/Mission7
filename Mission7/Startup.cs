@@ -35,6 +35,9 @@ namespace Mission7
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
+            //setting up an instace of the session that lets users do stuff with the carts
+            services.AddScoped<Cart>(x => SessionCart.GetCart(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

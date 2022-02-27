@@ -23,6 +23,14 @@
                 <td>@i.Quantity</td>
                 <td>$@i.Book.Price.ToString("#,##0.00")</td>
                 <td>$@((i.Book.Price * i.Quantity).ToString("#,##0.00")) </td>
+
+                <td class="text-center">
+                    <form method="post" asp-page-handler="Remove">
+                        <input type="hidden" name="bookId" value="@i.Book.BookId" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                </td>
             </tr>
         }
 
