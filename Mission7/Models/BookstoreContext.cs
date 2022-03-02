@@ -19,7 +19,9 @@ namespace Mission7.Models
         {
         }
 
+        //this is what migrations will reconize
         public DbSet<Book> Books { get; set; }
 
+        public DbSet<Checkout> Checkouts { get; set;}
     }
 }

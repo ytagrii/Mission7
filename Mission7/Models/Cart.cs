@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Mission7.Models
@@ -51,6 +52,7 @@ namespace Mission7.Models
     //each book in the cart
     public class CartItem
     {
+        [Key] 
         public int ItemID { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }

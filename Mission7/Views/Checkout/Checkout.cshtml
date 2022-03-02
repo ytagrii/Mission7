@@ -1,0 +1,58 @@
+﻿
+@{
+}
+@model Checkout
+
+<div class="text-center">
+    <h1>Checkout</h1>
+    <br />
+    <p>Please Fill out the form below</p>
+    <br />
+</div>
+
+<div>
+    <form method="post" asp-controller="Checkout" asp-action="Checkout">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <h4>Info</h4>
+        <div class="form-group">
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <h4>Billing Address</h4>
+        <div class="form-group">
+            <label asp-for="AddressLineOne">Address Line 1:</label>
+            <input asp-for="AddressLineOne" class="form-control" />
+        </div>
+
+        <div class="from-group">
+            <label asp-for="AddressLineTwo">Address Line 2:</label>
+            <input asp-for="AddressLineTwo" class="form-control" />
+        </div>
+
+        <div class="from-group">
+            <label asp-for="City">City:</label>
+            <input asp-for="City" class="form-control" />
+        </div>
+
+        <div class="from-group">
+            <label asp-for="State">State:</label>
+            <input asp-for="State" class="form-control" />
+        </div>
+
+        <div class="from-group">
+            <label asp-for="Zip">ZIP:</label>
+            <input asp-for="Zip" class="form-control" />
+        </div>
+
+        <div class="from-group">
+            <label asp-for="Country">Country:</label>
+            <input asp-for="Country" class="form-control" />
+        </div>
+        <br /><br />
+        <div class="float-end">
+            <button type="submit" class="btn btn-primary">Complete Purchase</button>
+        </div>
+    </form>
+</div>

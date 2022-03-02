@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     @*header info*@ 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="bg-dark text-white p-2">
+            <div class="container-fluid">
+                <div class="row">
+                   
+                    <div class="col">
+                        <a class="navbar-brand" style="color:white;"  asp-area="" asp-controller="Home" asp-action="Index"
+                        asp-route-bookCategory="" asp-route-pageNum="1">Book Store</a>
+                    </div>
+                    <div class="col-6 text-right">
+                        <vc:cart-summary />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"
-                   asp-route-bookCategory="" asp-route-pageNum="1">Book Store</a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">-->
                     @*<ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home"
@@ -25,9 +39,9 @@
                         </li>
 
                     </ul>*@
-                </div>
+                <!--</div>
             </div>
-        </nav>
+        </nav>-->
     </header>
 
     <div class="row m-1 p-1">

@@ -32,6 +32,7 @@ namespace Mission7
                 options.UseSqlite(Configuration["ConnectionStrings:BookConnection"]);
             });
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
