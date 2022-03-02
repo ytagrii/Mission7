@@ -7,6 +7,7 @@ namespace Mission7.Models
 {
     public class Checkout
     {
+        //This is the model for the checkout proccess form 
         [Key]
         [BindNever]
         public int checkoutId { get; set; }
