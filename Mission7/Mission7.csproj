@@ -23,6 +23,7 @@
     <None Remove="Pages\" />
     <None Remove="Views\Checkout\" />
     <None Remove="Views\Shared\Components\CartSummary\" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -39,6 +40,7 @@
     <Folder Include="Pages\" />
     <Folder Include="Views\Checkout\" />
     <Folder Include="Views\Shared\Components\CartSummary\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
