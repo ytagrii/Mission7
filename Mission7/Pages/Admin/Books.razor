@@ -2,12 +2,17 @@
 @page "/admin"
 @inherits OwningComponentBase<IBookstoreRepository>
 
-<table class="table table-sm table-striped table-bordered">
-    <thead>
+@*this page displays all the books with a Details, Edit, And Delete Buttons*@
+@*UNIQUE BOOTSTRAP*@
+<table class="table table-sm table-bordered table-hover">
+    <thead class="">
         <tr>
             <th>Book ID</th>
             <th>Book Title</th>
             <th>Book Author</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,15 +39,17 @@
         else
         {
             <tr>
-                <td colspan="5" class="text-center">No Books Found</td>
+                <td colspan="6" class="text-center">No Books Found</td>
             </tr>
         }
 
     </tbody>
  </table>
 
+@*button to add a new book*@ 
 <NavLink class="btn btn-secondary" href="/admin/books/create">Add New Book</NavLink>
 <br />
+
 @code {
     public IBookstoreRepository repo => Service;
 
@@ -64,6 +71,7 @@
         await UpdateData();
     }
 
+    //urls for the Details and Edit functionality that build automattically with an ID
     public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
     public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
 

@@ -1,6 +1,8 @@
 ﻿@page "/admin/purchases"
 @inherits OwningComponentBase<ICheckoutRepository>
 
+<!--THIS PAGE IMPORTS TEH SAME PURCHASETable.razor TO BUILD THESE 2 TABLES. WE PASS the tables-->
+@*PARAMETERS to make the table custom*@
 <PurchaseTable TableTitle="Unshipped Purchases" Purchases="UnShippedPurchases" ButtonLabel="Shipped"
                PurchaseSelected="ShipPurchase">
 
@@ -13,6 +15,7 @@
 
 <button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
 
+@*CODE BELOW GETS THE DATA*@
 @code{
     public ICheckoutRepository repo => Service;
 
