@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,10 +28,20 @@ namespace Mission7
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //adding teh connection strings from appssettings.json to connect to the databases
             services.AddDbContext<BookstoreContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookConnection"]);
             });
+            services.AddDbContext<AppIdentityDBContext>(options =>
+            {
+                //IdentityUser, IdentityRole
+                options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]); 
+            });
+
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDBContext>();
+
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
             services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
             services.AddRazorPages();
@@ -55,6 +66,10 @@ namespace Mission7
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+
+            //do this before endpoints b/c the app will check these first
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -82,6 +97,9 @@ namespace Mission7
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
+
+            //runs as program starts. Checks to make sure there is an admin user
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
