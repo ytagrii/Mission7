@@ -61,4 +61,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Bookstore.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Indentity.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
