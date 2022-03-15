@@ -10,8 +10,9 @@
     }
 </style>
 
-@*dynamic title*@ 
-<h3 class="bg-@ThemeColor text-center text-white p-1">@TitleText Book</h3>
+@*dynamic title*@
+@*NEW BOOTSTRAP CLASS HERE text-uppercase*@
+<h3 class="bg-@ThemeColor text-center text-white p-1 text-uppercase">@TitleText Book</h3>
 <br />
 
 <EditForm Model="b" OnValidSubmit="SaveBook">
