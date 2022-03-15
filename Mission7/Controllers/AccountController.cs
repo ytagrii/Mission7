@@ -22,6 +22,7 @@ namespace Mission7.Controllers
             signInManager = si;
         }
 
+        //get request that pulls up the login form
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
@@ -37,10 +38,12 @@ namespace Mission7.Controllers
 
                 if(user != null)
                 {
+                    //sign out before signing in
                     await signInManager.SignOutAsync();
 
                     if((await signInManager.PasswordSignInAsync(user, login.Password, false, false)).Succeeded)
                     {
+                        //if login is successfull redirect them to the admin page
                         return Redirect(login?.ReturnUrl ?? "/admin");
                     }
                 } 
@@ -50,6 +53,7 @@ namespace Mission7.Controllers
             return View(login);
         }
 
+        //this handles logging out and redircts to a return url which is usually the home page
         public async Task<RedirectResult> Logout(string returnUrl = "/")
         {
             await signInManager.SignOutAsync();
